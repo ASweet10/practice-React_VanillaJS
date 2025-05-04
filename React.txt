@@ -1,0 +1,43 @@
+1. Component Lifecycle
+Mount: Added to screen; React renders component & builds intial DOM
+Re-render: Receives new props or state (in response to an interaction)
+Unount: Removed from screen
+
+2. useEffect
+Hook that manages side-effects (calculations, fetch requests, direct DOM manipulation, timer functions like setTimeout())
+Runs side-effects independently of rendering
+2 arguments: useEffect(callback, [optional dependency array])
+Dependency array:
+-Omitted: Run after every render
+-Empty but present: Run once after first render
+-Included: Executes if given dependencies changed between renders
+Ex: useEffect(() => {
+    document.title = `Greetings ${name}`
+}, [name])
+
+3. Class components vs. functional components? (state management not syntax)
+Class components: state initialized with constructor
+Ex: class Hello extends React.Component {
+    constructor() {
+        this.state = { endOfMessage: '!' }
+    }
+
+    render() {
+        return <h1>Hello, { this.props.name } { this.state.endOfMessage }</h1>
+    }
+}
+
+Doesn't modify state directly (this.state.endOfMessage = '?' <--- Won't trigger re-render)
+Change state with setState: this.setState({ endOfMessage: '?' })
+Does current state depend on previous? Then take previous into account:
+Ex: this.setState(function(prevState, prevProps) {
+    return {
+        counter: prevState.counter + prevProps.increment
+    }
+})
+
+Functional components: Uses useState. Create array with value & function to update said value
+const [ count, setCount ] = useState(0)
+
+4. What is a hook? Give an example
+Special function that lets you "hook into" React features; useState lets you add React state to components

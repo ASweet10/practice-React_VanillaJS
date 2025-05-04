@@ -1,0 +1,142 @@
+https://youtu.be/xo1sW5HD7os
+
+1. Types in JS
+- String, Number, Bool, Undefined, Null, Symbol, BigInt
+
+2. Let - var - const
+Const: variable is constant; Doesn't change after assignment
+Var: Available in entire function in which it's declared
+Ex: function varScope() {
+    var x = 1;
+    if(true) {
+        let x = 2;
+        console.log(x); <-- prints 2
+    }
+    console.log(x); <-- prints 2
+}
+
+Let: Only available inside block it's defined in
+Ex: function letScope() {
+    let x = 1;
+    if(true) {
+        let x = 2;
+        console.log(x); <-- prints 2
+    }
+    console.log(x); <-- prints 1
+}
+
+3. What is hoisting & why does it exist?
+Default JavaScript behavior that moves declarations to the top; You can use variables before you declare them
+
+4. Class vs. Object
+Class: Blueprints that couple data & methods (encapsulation)
+Objects: Instances of a class
+
+5. What is "this" keyword and when do we use it?
+- Object executing the current piece of code
+
+6. Normal function vs. arrow function
+Normal functions have "arguments" object (console.log(arguments))
+-Ex: PrintArguments("Hello", 400){
+    console.log(arguments)
+}
+- '0': 'hello',
+- '1': 400,
+
+Arrow functions don't create "this" binding
+Normal functions have "this" variable that references the object
+
+Arrow functions can't be used as contructors
+Normal functions can create constructors that instantiate an object from a class
+
+Arrow functions can't be declared
+
+Arrow functions can't be accessed before initialization
+All functions are hoisted in JS, but only declared functions can be accessed before initialization
+
+
+7. What is a promise?
+An object that will produce a value at some point in time
+Successful? Produces "resolved"    Fail? Can use optional "reject"
+Ex: const promise = new Promise((resolve, reject) => {
+    const num = Math.random()
+    if (num > 0.5) {
+        resolve("Promise fulfilled!");
+    } else {
+        reject("Promise failed!");
+    }
+})
+
+.then() can add callbacks
+Ex: function handleResolve(value) {
+    console.log(value)
+}
+function handleReject(reason) {
+    console.error(reason)
+}
+promise.then(handleResolve, handleReject)
+
+Can also create immediately-resolved or rejected promises, then attach callback
+
+Promise.resolve("Sucessful").then((result) => console.log(result))
+Promise.reject("Not Successful").then((result) => console.log(result))
+Promise.reject(new Error()).catch((reason) => console.error(reason))
+
+8. Mutable vs. immutable; Which variables mutable & which immutable?
+Mutable types can be changed after creation
+
+Primitive types are immutable (undefined, null, bigInt, boolean, number, string, symbol)
+Ex: Create person and person2; set person2 = person; change a property in person; only person's property changes
+-JS creates a new space in memory & allocates same value to person2
+
+Reference types are mutable (objects, arrays, functions)
+Ex: Create person and person2; set person2 = person; change a property in person; both person and person2 change
+-Both variables reference the same object in memory
+
+9. What is closure? Give an example.
+Function bundled together with reference to surrounding state
+Gives inner function access to outer function's scope
+
+Front-end is event-based so it applies there often
+Define behavior; attach behavior to user-triggered event (onClick); attached code is a callback function
+Ex: Function that makes other functions
+function makeSizer(size) {
+    return function (offset) {
+        document.body.style.fontSize = `${size + offset}px`;
+    }
+}
+const size12 = makeSizer(12)
+const size14 = makeSizer(14)
+Both size12 and size14 are closures; Same function but different lexical environments; Size is 12 in size12 and 14 in size14
+
+document.getElementById("size-12").onclick = size12
+document.getElementById("size-14").onclick = size14
+<button id="size-12">12</button>
+<button id="size-14">14</button>
+
+10. Why are block-scoped variables not available after function exit?
+They are local to the function; They aren't outside of scope/global
+
+11. Front-end caching & local storage vs. session storage?
+Caching: Store reusable data in high-speed storage for fast future requests
+Session storage: data automatically deleted when tab / window is closed
+Local storage: data has no default expiration date; Must delete manually
+
+12. What are cookies & what are their use?
+Cookies: Short text files used to track preferences; Stored client-side
+Browser requests page from server; cookies added to request; Server gets information needed to remember user data
+
+13. What is HTTP? What is REST?
+HyperText Transfer Protocol: Load web pages via hypertext links
+Application layer protocol that transfers information between devices on network; Runs on top of other network layers
+GET: Read / Retrieve one or more resources
+POST: Create resource
+PUT: Modify resource information & create new if not available
+PATCH: Modify resource without sending entire body in request
+DELETE: Delete resource
+
+Representational State Transfer: Architectural style that provides computer standards
+"RESTful" systems separate client & server for modularity
+Client: send requests to get / change resources
+Server: send response
+Request is usually HTTP verb (GET, POST, DELETE); Header (information about request); Message body with data (Optional)
