@@ -1,1 +1,1 @@
-# practice-React_VanillaJS
+# Practice projects, interview questions, etc.

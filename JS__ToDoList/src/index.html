@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <!-- Head is for elements that aren't visible-->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>To-do List</title>
+   
+    <!-- Load free google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finlandica&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <!-- Body is for elements that are visible on webpage-->
+  <body>
+    <nav>
+      <div id="myDIV" class="header">
+        <h1>To-Do List</h1>
+        <h3 id="todo-date">test</h3>
+        <input type="text" id="inputBar" placeholder="Please enter to-do item">
+        <button id="add-todo-button", class="add-todo-button">+</button>
+        <button id="clear-todos-button", class="clear-todos-button">Clear</button>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div id="listBox" class="todos-box" style="display:inline-block"></div>
+        </div>
+        <div class="column">
+          <h2 style="font-size:28px; text-align: center;">Completed</h2>
+          <div id="finishedTodosBox" class="finished-todos-box"></div>
+        </div>
+        <script type="application/javascript" src="Main.js"></script>
+      </div>
+    </nav>
+
+  </body>
+</html>

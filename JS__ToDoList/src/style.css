@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    font-family: Finlandica;
+    background-color: rgb(123, 123, 123);
+  }
+  h1, h2, span, :not(.closeElement){
+    background-color: #00043e;
+    color: rgb(186, 186, 186);
+  }
+  body{
+    margin: 0px; /*Remove padding around side*/
+  }
+
+  .header {
+    background-color: #00043e;
+    padding: 30px 40px;
+    color: rgb(221, 255, 222);
+    text-align: center;
+  }  
+  /* Clear floats after the header*/
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Put space between input bar & add button */
+  input + button{
+    margin-left: 15px;
+  }
+  button + button{
+    margin-left: 15px;
+  }
+
+  .todo-item-span{
+    margin: 25px;
+  }
+  .finished-todo-span{
+    margin: 0px;
+  }
+  .column{
+    float: left;
+    width: 50%;
+  }
+  
+  /* Input bar*/
+  input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 50%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    color:#fff;
+  }
+
+  /* Add Item Button*/
+  .add-todo-button, .clear-todos-button {
+    padding: 10px;
+    width: 15%;
+    background: #353535;
+    color: rgb(255, 255, 255);
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0;
+    /* Transition smoothly over time */
+    transition: opacity 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  /* While hovered over...*/
+  .add-todo-button:hover, .clear-todos-button:hover {
+    background-color: rgb(127, 127, 127);
+  }
+  /* When clicked on...*/
+  .add-todo-button:active, .clear-todos-button:hover {
+    opacity: 0.8;
+  }
+
+  /* Delete Button*/
+  .delete-button {
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+    /* Transition smoothly over time */
+    transition: opacity 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: #871008;
+  }
+  /* While hovered over...*/
+  .delete-button:hover {
+    background-color: #a9160b;
+    color: white;
+  }
+  /* When clicked on...*/
+  .delete-button:active {
+    opacity: 0.8;
+  }
